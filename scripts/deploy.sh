@@ -133,6 +133,16 @@ fi
 # ---------- 取出口 IP ----------
 IP="$(curl -fsSL4 https://api.ipify.org 2>/dev/null || curl -fsSL https://ifconfig.me 2>/dev/null || echo 'YOUR_SERVER_IP')"
 
+# ---------- 持久化元数据(供 add-user.sh / gen-subscription.sh 复用)----------
+mkdir -p /etc/sing-box
+cat > /etc/sing-box/meta.env <<EOF
+SERVER_IP=${IP}
+REALITY_PORT=${PORT}
+REALITY_SNI=${SNI}
+REALITY_PBK=${PUBLIC_KEY}
+REALITY_SID=${SHORT_ID}
+EOF
+
 # ---------- 生成客户端链接 ----------
 LINK="vless://${UUID}@${IP}:${PORT}?encryption=none&flow=xtls-rprx-vision&security=reality&sni=${SNI}&fp=chrome&pbk=${PUBLIC_KEY}&sid=${SHORT_ID}&type=tcp#MyReality-${IP}"
 

@@ -114,13 +114,27 @@ A:可以,在 `config.json` 的 `users` 数组里多加几个 UUID 即可,人均�
 
 ---
 
+## 进阶玩法(可选)
+
+部署好基础节点后,按需叠加,详见 [`docs/advanced.md`](docs/advanced.md):
+
+- 🚀 **Hysteria2 提速**:`bash scripts/deploy-hysteria2.sh` —— 加一个 UDP 节点,
+  晚高峰/弱网比 Reality 更顺,与 Reality 共存。
+- 🔄 **多用户共用**:`bash scripts/add-user.sh 老婆` —— 给家人各发一把独立钥匙。
+- 📡 **订阅 + 自动切换**:`bash scripts/gen-subscription.sh` —— 一个链接同步全部节点,
+  客户端自动测速选最快、断线自动切换。
+
 ## 目录结构
 
 ```
 .
-├── README.md            # 本文件,总指南
+├── README.md                  # 本文件,总指南
 ├── scripts/
-│   └── deploy.sh        # 一键部署脚本
+│   ├── deploy.sh              # ① 一键部署 VLESS-Reality(主力)
+│   ├── deploy-hysteria2.sh   # ② 叠加 Hysteria2(弱网提速)
+│   ├── add-user.sh           # ③ 新增用户(多人共用)
+│   └── gen-subscription.sh   # ④ 生成订阅(自动切换)
 └── docs/
-    └── client.md        # 各平台客户端详细配置
+    ├── client.md             # 各平台客户端详细配置
+    └── advanced.md           # 进阶:Hysteria2 / 多用户 / 订阅
 ```
