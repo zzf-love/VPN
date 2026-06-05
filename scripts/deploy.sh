@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # 一键部署 VLESS-Reality 抗审查节点 (基于 sing-box)
-# 适用系统: Debian 10+ / Ubuntu 20.04+ (amd64 / arm64)
+# 适用系统: Debian 10/11/12/13 / Ubuntu 20.04+ (amd64 / arm64)
 #
 # 用法:  在你的海外 VPS 上, 用 root 执行:
 #   bash deploy.sh
